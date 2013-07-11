@@ -1,3 +1,11 @@
+import os
+#DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+# at the server, comment the SITE_ROOT and change MEDIA_ROOT and STATIC_ROOT
+
+
+
 # Django settings for myproject project.
 
 DEBUG = True
@@ -11,13 +19,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'tiac_aut',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'tiac_aut',
-        'PASSWORD': 'provisorio',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        #'USER': 'tiac_aut',
+        #'PASSWORD': 'provisorio',
+        #'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        #'PORT': '',                      # Set to empty string for default.
     }
 }
 
@@ -50,7 +58,8 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/home/tiac/webapps/static_aut/media/'
+#MEDIA_ROOT = '/home/tiac/webapps/static_aut/media/'
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'assets/media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -61,7 +70,8 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/tiac/webapps/static_aut/'
+#STATIC_ROOT = '/home/tiac/webapps/static_aut/'
+STATIC_ROOT = os.path.join(SITE_ROOT, 'assets/static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -79,7 +89,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
