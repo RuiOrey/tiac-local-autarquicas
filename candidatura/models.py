@@ -35,6 +35,8 @@ class Candidatura(models.Model):
     municipio = models.ForeignKey(Municipio)
     partidos=models.ManyToManyField(Partido)
     candidato = models.ForeignKey(Cabeca,unique=True)
+    custo_estimado = models.DecimalField(max_digits=65, decimal_places=30,default='0')
+    custo_declarado = models.DecimalField(max_digits=65, decimal_places=30,default='0')
     def __unicode__(self):
 		return self.nome_candidatura
 
