@@ -135,7 +135,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
      'candidatura',
-     'cartazes'
+     'cartazes',
+	 'denuncias'
 )
 
 # A sample logging configuration. The only tangible logging
