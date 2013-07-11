@@ -13,6 +13,8 @@ class Elemento(models.Model):
     tipo = models.ForeignKey(Tipo)
     custo = models.DecimalField(max_digits=65,decimal_places=10)
     descricao = models.TextField(blank=True)
+    dimensao_altura = models.IntegerField()
+    dimensao_largura = models.IntegerField()
     def __unicode__(self):
         return self.nome
 
@@ -22,8 +24,8 @@ class Registofoto(models.Model):
 	candidatura = models.ForeignKey(Candidatura)
 	titulo = models.CharField(max_length=200,blank=True)
 	descricao = models.TextField(blank=True)
-	mapa =models.URLField(blank=True)
-	foto = models.ImageField(upload_to='partidos/%s' % candidatura)
-	hora = models.DateTimeField(auto_now_add=True)
+	mapa = models.URLField(blank=True)
+	foto = models.ImageField(upload_to='partidos/%s' % candidatura,blank=True)
+	hora = models.DateTimeField(auto_now_add=True,editable=True)
 	def __unicode__(self):
-		return self.id
+		return 'foto%d' % self.pk
