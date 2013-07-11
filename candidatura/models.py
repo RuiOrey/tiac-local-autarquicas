@@ -14,10 +14,11 @@ class Municipio(models.Model):
 
 
 class Partido(models.Model):
-	nome_partido = models.CharField(max_length=200)
+	sigla_partido = models.CharField(max_length=200)
+	nome_extenso = models.CharField(max_length=200)
 	foto = models.ImageField(upload_to='partidos')
 	def __unicode__(self):
-		return self.nome_partido
+		return self.sigla_partido
 
 
 class Cabeca(models.Model):
