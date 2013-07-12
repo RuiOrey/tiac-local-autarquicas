@@ -137,7 +137,8 @@ INSTALLED_APPS = (
      'candidatura',
      'cartazes',
 	 'denuncias',
-	 'inauguracoes'
+	 'inauguracoes',
+     'tastypie'
 )
 
 # A sample logging configuration. The only tangible logging
