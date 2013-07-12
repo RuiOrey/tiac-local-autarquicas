@@ -136,7 +136,8 @@ INSTALLED_APPS = (
      'django.contrib.admindocs',
      'candidatura',
      'cartazes',
-	 'denuncias'
+	 'denuncias',
+	 'inauguracoes'
 )
 
 # A sample logging configuration. The only tangible logging
