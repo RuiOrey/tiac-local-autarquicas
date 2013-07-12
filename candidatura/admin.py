@@ -6,3 +6,4 @@ admin.site.register(Partido)
 admin.site.register(Municipio)
 admin.site.register(Cabeca)
 admin.site.register(Distrito)
+

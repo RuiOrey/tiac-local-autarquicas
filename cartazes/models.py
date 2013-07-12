@@ -20,6 +20,7 @@ class Elemento(models.Model):
 
 
 class Registofoto(models.Model):
+	#depois tem de se inserir chave externa o user
 	classificacao=models.ForeignKey(Elemento)
 	candidatura = models.ForeignKey(Candidatura)
 	titulo = models.CharField(max_length=200,blank=True)
