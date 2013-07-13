@@ -5,6 +5,8 @@ from tastypie import fields
 from cartazes.models import Registofoto
 from candidatura.models import Candidatura
 from django.db import models
+from tastypie.authentication import SessionAuthentication
+from tastypie.authorization import DjangoAuthorization
 
 class CandidaturaResource(ModelResource):
     class Meta:
@@ -23,3 +25,5 @@ class RegistoFotoResource(ModelResource):
 		queryset = Registofoto.objects.all()
 		resource_name = 'cartazes'
 		filtering = {'titulo':ALL}
+		authentication = SessionAuthentication()
+        authorization = DjangoAuthorization()
