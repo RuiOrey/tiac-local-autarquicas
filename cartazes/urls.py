@@ -1,13 +1,16 @@
 from django.conf.urls import patterns, url, include
-from api import RegistoFotoResource
+from django.conf.urls.defaults import *
+from tastypie.api import Api
+from api import RegistoFotoResource, CandidaturaResource
 from cartazes import views
 
-#http://127.0.0.1:8000/cartazes/api/cartazes/?format=json
-# ou
-#http://127.0.0.1:8000/cartazes/api/cartazes/?format=xml
 
 registo_resource= RegistoFotoResource()
 
+v1_api = Api(api_name='v1')
+v1_api.register(RegistoFotoResource())
+v1_api.register(CandidaturaResource())
+
 urlpatterns= patterns('',
-	url(r'^api/', include(registo_resource.urls)),
+	url(r'^api/', include(v1_api.urls)),
 )
